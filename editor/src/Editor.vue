@@ -3,20 +3,26 @@
         <button @click="setTheme()">Theme</button>
         <button @click="setFile(1)">Fichier1</button>
         <button @click="setFile(2)">Fichier2</button>
+        <FilesTab orientation="top"/>
         <AceEditor v-model="content" @init="editorInit" :lang="lang" theme="twilight" height="100"></AceEditor>
+        <FilesTab orientation="bottom"/>
+
         <pre>
             {{ content }}
         </pre>
+
+        <div class="test"></div>
     </div>
 </template>
 
 <script>
 import ace from 'ace-builds';
 import AceEditor from './AceEditor.vue';
+import FilesTab from './FilesTab.vue';
 
 export default {
     components: {
-        AceEditor,
+        AceEditor,FilesTab
     },
 
     data() {
@@ -76,4 +82,10 @@ pre
 {
     color: white;
 }
+
+    div.test {
+        background-color: red;
+        width: 100px;
+        height: 100px;
+    }
 </style>
